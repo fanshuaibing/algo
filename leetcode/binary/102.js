@@ -1,0 +1,25 @@
+var levelOrder = function (root) {
+  if (!root) return root;
+  let queue = [root];
+  let arr = [];
+  let level = 0;
+  while (queue.length) {
+    let i = 0;
+    const len = queue.length;
+    while (i < len) {
+      let node = queue.shift();
+      arr[level] = arr[level] || [];
+      arr[level].push();
+
+      if (node.left) {
+        queue.push(node.left);
+      }
+      if (node.right) {
+        queue.push(node.right);
+      }
+    }
+    ++level;
+  }
+
+  return arr;
+};
