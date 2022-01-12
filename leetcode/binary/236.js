@@ -6,16 +6,15 @@ var lowestCommonAncestor = function (root, p, q) {
   }
 
   let left = lowestCommonAncestor(root.left, p, q);
-
   let right = lowestCommonAncestor(root.right, p, q);
 
   if (left && right) {
     return root;
   }
-  // 情况 2
-  if (left === null && right === null) {
+
+  if (!left && !right) {
     return null;
   }
-  // 情况 3
+
   return left || right;
 };
